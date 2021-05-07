@@ -11,6 +11,8 @@ package utils;
  */
 public class Validators {
 	
+	private Validators() {}
+	
 	/**
 	 * Verifica se há caracteres não alfabéticos
 	 * 
