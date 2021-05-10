@@ -1,6 +1,6 @@
 package br.com.proway.senior.escola.model;
 
-import utils.Validators;
+import br.com.proway.senior.escola.utils.Validators;
 
 /**
  * Pessoa que estuda na escola.

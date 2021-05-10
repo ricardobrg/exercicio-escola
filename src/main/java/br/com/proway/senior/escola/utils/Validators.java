@@ -1,4 +1,4 @@
-package utils;
+package br.com.proway.senior.escola.utils;
 
 /**
  * Utilitários do sistema

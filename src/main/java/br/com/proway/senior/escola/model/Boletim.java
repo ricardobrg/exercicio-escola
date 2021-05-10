@@ -72,57 +72,12 @@ public class Boletim {
 		return this.provas;
 	}
 
-
-	/**
-	 * Adiciona uma avaliaÃ§Ã£o ao boletim.
-	 * 
-	 * Ao adicionar a Prova, a mÃ©dia Ã© recalculada.
-	 * 
-	 * @param prova
-	 */
-	public void addProva(Prova prova) {
-		provas.add(prova);
-		this.calcularMedia();
+	public void setMedia(double d) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	/**
-	 * Remove uma avaliaÃ§Ã£o do boletim.
-	 * 
-	 * Ao remover a Prova, a mÃ©dia Ã© recalculada.
-	 * 
-	 * @param prova
-	 */
-	public void removeProva(int index) {
-		try{
-			provas.remove(index);
-		}catch(Exception e) {
-			System.out.println("Prova não removida. Erro:" + e.getMessage());
-		}
-		this.calcularMedia();
+	public void resetProvas() {
+		// TODO Auto-generated method stub
 	}
-
-	/**
-	 * Calcula a mÃ©dia ponderada das provas.
-	 * 
-	 * Realiza o cÃ¡lculo da mÃ©dia das notas das provas e atualiza o valor da
-	 * media.
-	 */
-	private void calcularMedia() {
-		Double total = 0.0;
-		int pesos = 0;
-		for(Prova prova : provas) {
-			total += prova.getNota() * prova.getPeso();
-			pesos += prova.getPeso();
-		}
-		this.media = total / pesos; 
-	}
-	
-	/**;
-	 * Remove todas as provas.
-	 * 
-	 */
-	public void removeTodasProvas() {
-		this.provas = new ArrayList<Prova>();
-	}
-
 }

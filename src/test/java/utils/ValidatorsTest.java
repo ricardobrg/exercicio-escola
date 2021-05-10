@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import br.com.proway.senior.escola.utils.Validators;
+
 public class ValidatorsTest {
 
 	@Test
