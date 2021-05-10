@@ -15,6 +15,7 @@ package br.com.proway.senior.escola.model;
  */
 public class Prova {
 
+	private Integer id;
 	private Integer periodo;
 	private Aluno aluno;
 	private Materia materia;
@@ -37,6 +38,14 @@ public class Prova {
 		this.materia = materia;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	/**
 	 * Valor da avaliação do aluno.

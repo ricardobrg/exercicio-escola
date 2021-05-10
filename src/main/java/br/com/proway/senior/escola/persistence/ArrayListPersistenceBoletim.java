@@ -2,11 +2,11 @@ package br.com.proway.senior.escola.persistence;
 
 import java.util.ArrayList;
 
-import br.com.proway.senior.escola.model.Prova;
+import br.com.proway.senior.escola.model.Boletim;
 
-public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
+public class ArrayListPersistenceBoletim extends ArrayListPersistence<Boletim>{
 	
-	public ArrayList<Prova> dados = new ArrayList<Prova>();
+	public ArrayList<Boletim> dados = new ArrayList<Boletim>();
 
 	@Override
 	public boolean removeAll() {
@@ -20,9 +20,9 @@ public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
 	}
 
 	@Override
-	public boolean remove(Integer indexProva) {
+	public boolean remove(Integer indexBoletim) {
 		try{
-			dados.remove(indexProva);
+			dados.remove((int) indexBoletim);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;
@@ -31,7 +31,7 @@ public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
 	}
 
 	@Override
-	public Prova add(Prova item) {
+	public Boletim add(Boletim item) {
 		try{
 			Integer id = dados.size();
 			item.setId(id);
@@ -40,11 +40,11 @@ public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return null;		
+		return null;				
 	}
 
 	@Override
-	public Prova get(Integer indexItem) {
+	public Boletim get(Integer indexItem) {
 		try{
 			return dados.get(indexItem);
 		}catch (Exception e) {
@@ -54,7 +54,7 @@ public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
 	}
 
 	@Override
-	public ArrayList<Prova> getAll() {
+	public ArrayList<Boletim> getAll() {
 		try{
 			return dados;
 		}catch (Exception e) {

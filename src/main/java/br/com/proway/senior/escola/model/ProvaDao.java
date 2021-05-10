@@ -6,24 +6,26 @@ import br.com.proway.senior.escola.persistence.ArrayListPersistenceProva;
 
 public class ProvaDao {
 
-	Boletim boletim;
 	ArrayListPersistenceProva db;
 	
-	public ProvaDao(ArrayListPersistenceProva db, Boletim boletim) {
+	public ProvaDao(ArrayListPersistenceProva db) {
 		this.db = db;
 	}
 
 	public void removeAll() {
-		db.removeAll(boletim.getId());
+		db.removeAll();
 	}
 
 	public void remove(Integer index) {
-		db.remove(boletim.getId(), index);	
+		db.remove(index);	
 	}
 
-	public void add(boletim.getId(), Prova prova) {
-		ArrayList<Prova> provas = boletim.getProvas();
-		provas.add(prova);		
+	public Prova add(Prova prova) {
+		return db.add(prova);
+	}
+	
+	public Prova get(int index) {
+		return db.get(index);
 	}
 
 }

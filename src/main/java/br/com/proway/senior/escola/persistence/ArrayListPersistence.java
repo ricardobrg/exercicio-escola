@@ -2,18 +2,20 @@ package br.com.proway.senior.escola.persistence;
 
 import java.util.ArrayList;
 
+import br.com.proway.senior.escola.model.Prova;
+
 abstract public class ArrayListPersistence<T> {
 	
-	ArrayList<ArrayList<T>> dados;
+	ArrayList<T> dados;
 	
-	abstract boolean removeAll(Integer indexParent);
+	abstract boolean removeAll();
 	
-	abstract boolean remove(Integer indexParent, Integer indexItem);
+	abstract boolean remove(Integer indexItem);
 	
-	abstract Integer add(Integer indexParent, T item);
+	abstract T add(T item);
 	
-	abstract T get(Integer indexParent, Integer index);
+	abstract T get(Integer index);
 	
-	abstract ArrayList<T> getAll(Integer indexParent);
+	abstract ArrayList<T> getAll();
 
 }
