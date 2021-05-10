@@ -72,12 +72,11 @@ public class Boletim {
 		return this.provas;
 	}
 
-	public void setMedia(double d) {
-		// TODO Auto-generated method stub
-		
+	public void setMedia(double media) {
+		this.media = media;		
 	}
 
 	public void resetProvas() {
-		// TODO Auto-generated method stub
+		this.provas = new ArrayList<Prova>();
 	}
 }

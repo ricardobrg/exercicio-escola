@@ -2,7 +2,7 @@ package br.com.proway.senior.escola.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class BoletimControllerTest {
 
 	@Test
 	public void testBoletimController() {
-		fail("Not yet implemented");
+		assertNotNull(controller);
 	}
 
 	@Test
@@ -43,22 +43,24 @@ public class BoletimControllerTest {
 	@Test
 	public void testRemoveProva() {
 		Materia materia = new Materia();
-		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
-		boletim.removeTodasProvas();
-		boletim.addProva(prova);
-		boletim.addProva(prova);
-		boletim.removeProva(0);
+		Boletim boletim = controller.getBoletim();
+		Prova prova = new Prova(202105, boletim.getAluno(), materia);
+		controller.removeTodasProvas();
+		controller.addProva(prova);
+		controller.addProva(prova);
+		controller.removeProva(0);
 		assertEquals(1, boletim.getProvas().size());
 	}
 
 	@Test
 	public void testRemoveProvaInexistente() {
 		Materia materia = new Materia();
-		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
-		boletim.removeTodasProvas();
-		boletim.addProva(prova);
-		boletim.addProva(prova);
-		boletim.removeProva(4);
+		Boletim boletim = controller.getBoletim();
+		Prova prova = new Prova(202105, boletim.getAluno(), materia);
+		controller.removeTodasProvas();
+		controller.addProva(prova);
+		controller.addProva(prova);
+		controller.removeProva(4);
 		assertEquals(2, boletim.getProvas().size());
 	}
 
@@ -66,9 +68,10 @@ public class BoletimControllerTest {
 	@Test
 	public void testRemoveTodasProvas() {
 		Materia materia = new Materia();
-		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
-		boletim.addProva(prova);
-		boletim.removeTodasProvas();
+		Boletim boletim = controller.getBoletim();
+		Prova prova = new Prova(202105, boletim.getAluno(), materia);
+		controller.addProva(prova);
+		controller.removeTodasProvas();
 		assertFalse(boletim.getProvas().size() > 0);
 	}
 	
