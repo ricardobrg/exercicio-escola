@@ -3,10 +3,10 @@ package br.com.proway.senior.escola.model;
 import java.util.ArrayList;
 
 /**
- * Reúne as {@link Prova}s de um {@link Aluno}.
+ * ReÃºne as {@link Prova}s de um {@link Aluno}.
  * 
- * O boletim possui uma lista de {@link Prova}s e é referente a um periodo de um
- * {@link Aluno}. Para cada período é calculada a média das provas que resulta
+ * O boletim possui uma lista de {@link Prova}s e Ã© referente a um periodo de um
+ * {@link Aluno}. Para cada perÃ­odo Ã© calculada a mÃ©dia das provas que resulta
  * na nota do Boletim.
  * 
  * @author ricardo.goncalves
@@ -22,8 +22,8 @@ public class Boletim {
 	/**
 	 * Cria um novo Boletim
 	 * 
-	 * O Boletim é criado a partir de um aluno e um período. Conforme as provas
-	 * são adicionadas, realiza-se o cálculo atualizado da média.
+	 * O Boletim Ã© criado a partir de um aluno e um perÃ­odo. Conforme as provas
+	 * sÃ£o adicionadas, realiza-se o cÃ¡lculo atualizado da mÃ©dia.
 	 * 
 	 * @param aluno
 	 * @param periodo
@@ -46,7 +46,7 @@ public class Boletim {
 	}
 
 	/**
-	 * Período no formato YYYYMM
+	 * PerÃ­odo no formato YYYYMM
 	 * 
 	 * @return
 	 */
@@ -55,7 +55,7 @@ public class Boletim {
 	}
 
 	/**
-	 * Retorna a média das provas atualizada.
+	 * Retorna a mÃ©dia das provas atualizada.
 	 * 
 	 * @return
 	 */
@@ -74,35 +74,50 @@ public class Boletim {
 
 
 	/**
-	 * Adiciona uma avaliação ao boletim.
+	 * Adiciona uma avaliaÃ§Ã£o ao boletim.
 	 * 
-	 * Ao adicionar a Prova, a média é recalculada.
+	 * Ao adicionar a Prova, a mÃ©dia Ã© recalculada.
 	 * 
 	 * @param prova
 	 */
 	public void addProva(Prova prova) {
+		provas.add(prova);
+		this.calcularMedia();
 	}
 
 	/**
-	 * Remove uma avaliação do boletim.
+	 * Remove uma avaliaÃ§Ã£o do boletim.
 	 * 
-	 * Ao remover a Prova, a média é recalculada.
+	 * Ao remover a Prova, a mÃ©dia Ã© recalculada.
 	 * 
 	 * @param prova
 	 */
 	public void removeProva(int index) {
+		try{
+			provas.remove(index);
+		}catch(Exception e) {
+			System.out.println("Prova não removida. Erro:" + e.getMessage());
+		}
+		this.calcularMedia();
 	}
 
 	/**
-	 * Calcula a média ponderada das provas.
+	 * Calcula a mÃ©dia ponderada das provas.
 	 * 
-	 * Realiza o cálculo da média das notas das provas e atualiza o valor da
+	 * Realiza o cÃ¡lculo da mÃ©dia das notas das provas e atualiza o valor da
 	 * media.
 	 */
 	private void calcularMedia() {
+		Double total = 0.0;
+		int pesos = 0;
+		for(Prova prova : provas) {
+			total += prova.getNota() * prova.getPeso();
+			pesos += prova.getPeso();
+		}
+		this.media = total / pesos; 
 	}
 	
-	/**
+	/**;
 	 * Remove todas as provas.
 	 * 
 	 */

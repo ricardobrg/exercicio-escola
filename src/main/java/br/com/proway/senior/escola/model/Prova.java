@@ -18,7 +18,8 @@ public class Prova {
 	private Integer periodo;
 	private Aluno aluno;
 	private Materia materia;
-	private Double nota;
+	private Double nota = 0.0;
+	private int peso = 1; 
 	
 	/**
 	 * Avaliação de desempenho do aluno
@@ -57,19 +58,46 @@ public class Prova {
 		}
 		this.nota = nota;
 	}
-
+	
+	/**
+	 * Período no formato YYYYMM.
+	 * @return periodo da prova
+	 */
 	public Integer getPeriodo() {
 		return periodo;
 	}
 
+	/**
+	 * Aluno que realizou a Prova.
+	 * @return Aluno
+	 */
 	public Aluno getAluno() {
 		return aluno;
 	}
 
+	/**
+	 * Materia da prova.
+	 * @return Materia
+	 */
 	public Materia getMateria() {
 		return materia;
 	}
 
+	/**
+	 * Peso da prova.
+	 * 
+	 * Este peso será utilizado ao calcular a média ponderada das notas no 
+	 * Boletim
+	 * @return
+	 */
+	public int getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
 
 	
 }

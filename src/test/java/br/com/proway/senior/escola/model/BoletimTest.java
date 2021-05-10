@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class BoletimTest{
 	
-	static Boletim boletim ;
+	static Boletim boletim;
 	private static int periodoPadrao= 202105;
 
 	@BeforeClass
@@ -39,6 +39,7 @@ public class BoletimTest{
 		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
 		try {
 			prova.setNota(10.0);
+			boletim.addProva(prova);
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -47,6 +48,7 @@ public class BoletimTest{
 
 	@Test
 	public void testAddProva() {
+		boletim.removeTodasProvas();
 		Materia materia = new Materia();
 		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
 		boletim.addProva(prova);
@@ -62,7 +64,18 @@ public class BoletimTest{
 		boletim.addProva(prova);
 		boletim.removeProva(0);
 		assertEquals(1, boletim.getProvas().size());
-			}
+	}
+	
+	@Test
+	public void testRemoveProvaInexistente() {
+		Materia materia = new Materia();
+		Prova prova = new Prova(periodoPadrao, boletim.getAluno(), materia);
+		boletim.removeTodasProvas();
+		boletim.addProva(prova);
+		boletim.addProva(prova);
+		boletim.removeProva(4);
+		assertEquals(2, boletim.getProvas().size());
+	}
 	
 	@Test
 	public void testRemoveTodasProvas() {
