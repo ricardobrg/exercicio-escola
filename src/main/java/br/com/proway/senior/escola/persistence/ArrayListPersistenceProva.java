@@ -22,7 +22,7 @@ public class ArrayListPersistenceProva extends ArrayListPersistence<Prova>{
 	@Override
 	public boolean remove(Integer indexProva) {
 		try{
-			dados.remove(indexProva);
+			dados.remove((int) indexProva);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 			return false;

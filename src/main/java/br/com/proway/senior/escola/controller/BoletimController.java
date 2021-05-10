@@ -26,11 +26,10 @@ public class BoletimController {
 	}
 	
 	public Boletim addBoletim() {
-		if(this.boletim.getId() != null) {
+		if(this.boletim.getId() == null) {
 			return this.boletimDao.add(this.boletim);	
-		}else {
-			return this.boletimDao.get(this.boletim.getId());
-		}	
+		}
+		return this.boletim;
 	}
 	
 	/**

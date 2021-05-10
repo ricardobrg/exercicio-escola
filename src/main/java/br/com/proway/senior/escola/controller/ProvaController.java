@@ -13,6 +13,7 @@ public class ProvaController {
 	
 	public ProvaController(Prova prova) {
 		this.provaDao = new ProvaDao(dbProvas);		
+		this.prova = prova;
 	}
 	
 	public ProvaController(int index) {
@@ -28,9 +29,8 @@ public class ProvaController {
 	public Prova addProva() {
 		if(this.prova.getId() != null) {
 			return this.provaDao.add(this.prova);	
-		}else {
-			return this.provaDao.get(this.prova.getId());
-		}	
+		}
+		return this.prova;
 	}
 
 	/**
