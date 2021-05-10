@@ -23,6 +23,7 @@ public class BoletimController {
 	 */
 	public BoletimController(Boletim boletimEntrada) {
 		this.boletimDao = new BoletimDao(dbBoletim);
+		this.boletim = boletimEntrada;
 	}
 	
 	public Boletim addBoletim() {
@@ -60,8 +61,12 @@ public class BoletimController {
 	public void removeProva(int index) {
 		ProvaController provaController = new ProvaController(index);
 		provaController.removeProva();	
-		boletim.getProvas().remove(index);
-		this.calcularMedia();
+		try {
+			boletim.getProvas().remove(index);
+			this.calcularMedia();
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**;

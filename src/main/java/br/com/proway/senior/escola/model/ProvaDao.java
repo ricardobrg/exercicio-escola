@@ -24,7 +24,7 @@ public class ProvaDao {
 		return db.add(prova);
 	}
 	
-	public Prova get(int index) {
+	public Prova get(Integer index) {
 		return db.get(index);
 	}
 
