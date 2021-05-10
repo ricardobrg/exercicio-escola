@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import br.com.proway.senior.escola.model.Boletim;
 import br.com.proway.senior.escola.model.Prova;
+import br.com.proway.senior.escola.model.ProvaDao;
 
 public class BoletimController {
 	
@@ -21,8 +22,8 @@ public class BoletimController {
 	 * @param prova
 	 */
 	public void addProva(Prova prova) {
-		ArrayList<Prova> provas = boletim.getProvas();
-		provas.add(prova);
+		ProvaDao provaDao = new ProvaDao(boletim);
+		provaDao.add(prova);
 		this.calcularMedia();
 	}
 
@@ -35,8 +36,8 @@ public class BoletimController {
 	 */
 	public void removeProva(int index) {
 		try{
-			ArrayList<Prova> provas = boletim.getProvas();
-			provas.remove(index);
+			ProvaDao provaDao = new ProvaDao(boletim);
+			provaDao.remove(index);
 		}catch(Exception e) {
 			System.out.println("Prova não removida. Erro:" + e.getMessage());
 		}
@@ -48,7 +49,8 @@ public class BoletimController {
 	 * 
 	 */
 	public void removeTodasProvas() {
-		boletim.resetProvas();
+		ProvaDao provaDao = new ProvaDao(boletim);
+		provaDao.removeAll();
 		this.calcularMedia();
 	}
 	

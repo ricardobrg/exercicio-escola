@@ -1,5 +1,5 @@
 package br.com.proway.senior.escola.model;
 
-public class BoletimDAO {
+public class BoletimDao {
 
 }
